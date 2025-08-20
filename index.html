@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FinX – Student Finance Prototype</title>
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="FinX logo" />
+      <span>FinX</span>
+    </div>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#demo">Demo</a>
+      <a href="#insights">Insights</a>
+      <a href="#team">Team</a>
+      <a class="cta" href="#demo">Try Prototype</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>The Student Financial Universe</h1>
+    <p>Smart budgeting, shared expenses, and habit nudges for students — built from real survey pain points.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#demo">Open Prototype</a>
+      <a class="btn ghost" href="https://github.com/YOUR-USERNAME/finx-universe" target="_blank" rel="noopener">View Code</a>
+    </div>
+  </section>
+
+  <section id="overview" class="grid">
+    <div class="card">
+      <h3>Problem</h3>
+      <p>Students struggle with peer-pressure spending, lack of financial knowledge, and tracking expenses. Many also juggle loans, rent sharing, and limited access to tools.</p>
+    </div>
+    <div class="card">
+      <h3>Solution</h3>
+      <p>FinX combines: auto-budgeting, group expense splits, micro-nudges, goal-based saving, and SOS emergency planning — all mobile-first.</p>
+    </div>
+    <div class="card">
+      <h3>Why Now</h3>
+      <p>Students widely use apps like Splitwise/Jupiter/Cred/Walnut; FinX unifies core workflows and adds guidance built on survey-driven insights.</p>
+    </div>
+  </section>
+
+  <section id="demo" class="demo">
+    <h2>Interactive Prototype</h2>
+    <div class="demo-tabs">
+      <button class="tab active" data-tab="budget">Budget</button>
+      <button class="tab" data-tab="split">Split</button>
+      <button class="tab" data-tab="goals">Goals</button>
+      <button class="tab" data-tab="sos">Emergency</button>
+    </div>
+
+    <div id="budget" class="panel active">
+      <div class="panel-grid">
+        <div class="panel-card">
+          <h3>Monthly Budget</h3>
+          <div class="budget-config">
+            <label>Allowance (₹)
+              <input id="allowance" type="number" min="0" value="6000" />
+            </label>
+            <label>Fixed costs (₹)
+              <input id="fixed" type="number" min="0" value="2500" />
+            </label>
+            <label>Goal savings (₹)
+              <input id="goal" type="number" min="0" value="1000" />
+            </label>
+            <button id="calcBudget" class="btn primary">Calculate</button>
+          </div>
+          <div class="result" id="budgetResult"></div>
+        </div>
+        <div class="panel-card">
+          <h3>Smart Allocations</h3>
+          <ul id="smartList" class="list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="split" class="panel">
+      <div class="panel-grid">
+        <div class="panel-card">
+          <h3>Split Expense</h3>
+          <label>Total bill (₹)
+            <input id="bill" type="number" min="0" value="1200" />
+          </label>
+          <label>People
+            <input id="people" type="number" min="1" value="3" />
+          </label>
+          <label>Tip %
+            <input id="tip" type="number" min="0" value="5" />
+          </label>
+          <button id="calcSplit" class="btn primary">Split</button>
+          <div class="result" id="splitResult"></div>
+        </div>
+        <div class="panel-card">
+          <h3>Nudge Center</h3>
+          <ul id="nudgeList" class="list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="goals" class="panel">
+      <div class="panel-grid">
+        <div class="panel-card">
+          <h3>Create Saving Goal</h3>
+          <label>Goal name
+            <input id="goalName" placeholder="Exam prep course" />
+          </label>
+          <label>Target (₹)
+            <input id="goalTarget" type="number" min="0" value="5000" />
+          </label>
+          <label>Months
+            <input id="goalMonths" type="number" min="1" value="5" />
+          </label>
+          <button id="addGoal" class="btn primary">Add Goal</button>
+          <div class="result" id="goalMsg"></div>
+        </div>
+        <div class="panel-card">
+          <h3>My Goals</h3>
+          <ul id="goalList" class="list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="sos" class="panel">
+      <div class="panel-grid">
+        <div class="panel-card">
+          <h3>Emergency Cushion</h3>
+          <label>Monthly essentials (₹)
+            <input id="essentials" type="number" min="0" value="3500" />
+          </label>
+          <label>Months of safety
+            <input id="months" type="number" min="1" value="2" />
+          </label>
+          <button id="calcSOS" class="btn primary">Plan</button>
+          <div class="result" id="sosResult"></div>
+        </div>
+        <div class="panel-card">
+          <h3>Quick Tips</h3>
+          <ul class="list">
+            <li>Move 10% to savings on day-1.</li>
+            <li>Tag spends: food, travel, study, fun.</li>
+            <li>Use group splits for rent and utilities.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="insights" class="insights">
+    <h2>Survey Insights</h2>
+    <p>We synthesized 1,000 student responses to shape features. Common themes included: peer-pressure spending, lack of financial knowledge, budgeting challenges, loans, rent sharing, and emergency planning.</p>
+    <div class="insight-cards" id="insightCards"></div>
+    <details class="raw">
+      <summary>Dataset notes</summary>
+      <p>The attached CSV contains minor anomalies (e.g., a “Rural=COUNTIF(” artifact). The prototype ignores malformed tokens when summarizing insights client-side.</p>
+    </details>
+  </section>
+
+  <section id="team" class="team">
+    <h2>Team</h2>
+    <p>Built for the online competition. Contact: team@finx.example</p>
+  </section>
+
+  <footer class="footer">
+    <span>© 2025 FinX Prototype</span>
+    <a href="https://github.com/YOUR-USERNAME/finx-universe" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
